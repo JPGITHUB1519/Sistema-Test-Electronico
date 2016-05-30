@@ -1,0 +1,16 @@
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\Sistema Test Electronico\bin\Debug\Sistema Test Electronico.exe
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\Sistema Test Electronico\bin\Debug\Sistema Test Electronico.pdb
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\Sistema Test Electronico\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\Sistema Test Electronico\obj\x86\Debug\Sistema_Test_Electronico.Form1.resources
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\Sistema Test Electronico\obj\x86\Debug\Sistema_Test_Electronico.Principal.resources
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\Sistema Test Electronico\obj\x86\Debug\Sistema_Test_Electronico.Properties.Resources.resources
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\Sistema Test Electronico\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\Sistema Test Electronico\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\Sistema Test Electronico\obj\x86\Debug\Sistema Test Electronico.exe
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\Sistema Test Electronico\obj\x86\Debug\Sistema Test Electronico.pdb
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\Sistema Test Electronico\bin\Debug\CapaPresentacion.dll
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\Sistema Test Electronico\bin\Debug\CapaLogica.dll
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\Sistema Test Electronico\bin\Debug\CapaDatos.dll
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\Sistema Test Electronico\bin\Debug\CapaPresentacion.pdb
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\Sistema Test Electronico\bin\Debug\CapaLogica.pdb
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\Sistema Test Electronico\bin\Debug\CapaDatos.pdb

@@ -1,0 +1,7 @@
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\CapaLogica\bin\Debug\CapaLogica.dll
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\CapaLogica\bin\Debug\CapaLogica.pdb
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\CapaLogica\bin\Debug\CapaDatos.dll
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\CapaLogica\bin\Debug\CapaDatos.pdb
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\CapaLogica\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\CapaLogica\obj\Debug\CapaLogica.dll
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\CapaLogica\obj\Debug\CapaLogica.pdb

@@ -1,0 +1,6 @@
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\CapaDatos\bin\Debug\CapaDatos.dll.config
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\CapaDatos\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\CapaDatos\obj\Debug\CapaDatos.pdb
