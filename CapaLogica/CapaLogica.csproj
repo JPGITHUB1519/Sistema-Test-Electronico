@@ -43,6 +43,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="LCarrera.cs" />
     <Compile Include="LEstudiante.cs" />
+    <Compile Include="LUsuarioAdministrador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
