@@ -7,29 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using CapaLogica;
+
 namespace CapaPresentacion
 {
-    public partial class FrmCarrera : Form
+    public partial class FrmEstudiante : Form
     {
         private bool IsNuevo = false;
         private bool IsEditar = false;
 
-        public FrmCarrera()
+        public FrmEstudiante()
         {
             InitializeComponent();
-        }
-
-        private void FrmCarrera_Load(object sender, EventArgs e)
-        {
-            this.ttmensaje.SetToolTip(txtidcarrera, "Ingrese el codigo de la carrera");
-            this.ttmensaje.SetToolTip(txtnombre, "Ingrese el nombre de la carrera");
-
-            this.Top = 0;
-            this.Left = 0;
-
-            this.Mostrar();
-            this.Habilitar(false);
-            this.Botones();
+            
         }
 
         // Mostrar Mensaje de Confirmación
@@ -50,7 +39,7 @@ namespace CapaPresentacion
 
         private void Limpiar()
         {
-            this.txtidcarrera.Text = string.Empty;
+            this.txtmatricula.Text = string.Empty;
             this.txtnombre.Text = string.Empty;
 
         }
@@ -59,8 +48,9 @@ namespace CapaPresentacion
 
         private void Habilitar(bool valor)
         {
-            this.txtidcarrera.ReadOnly = !valor;
+            this.txtmatricula.ReadOnly = !valor;
             this.txtnombre.ReadOnly = !valor;
+            this.cbcarrera.Enabled = valor;
         }
 
         // habilitar botones
@@ -100,16 +90,41 @@ namespace CapaPresentacion
         private void Mostrar()
         {
 
-            this.dataListado.DataSource = LCarrera.mostrar();
+            this.dataListado.DataSource = LEstudiante.mostrar();
             this.OcultarColumnas();
             lblTotal.Text = "Total de Registros : " + Convert.ToString(dataListado.Rows.Count);
         }
 
         private void BuscarNombre()
         {
-            this.dataListado.DataSource = LCarrera.buscar_nombre(this.txtBuscar.Text);
+            this.dataListado.DataSource = LEstudiante.buscar_nombre(this.txtBuscar.Text);
             this.OcultarColumnas();
             lblTotal.Text = "Total de Registros : " + Convert.ToString(dataListado.Rows.Count);
+        }
+
+         private void llenar_combo()
+        {
+            this.cbcarrera.DataSource = LCarrera.mostrar();
+            this.cbcarrera.DisplayMember = "idcarrera";
+            this.cbcarrera.ValueMember = "idcarrera";
+        }
+
+
+
+        private void FrmEstudiante_Load(object sender, EventArgs e)
+        {
+            llenar_combo();
+            this.ttmensaje.SetToolTip(txtmatricula, "Ingrese la matricula del estudiante");
+            this.ttmensaje.SetToolTip(txtnombre, "Ingrese el nombre del estudiante");
+            this.ttmensaje.SetToolTip(cbcarrera, "Seleccione la carrera");
+
+            this.Top = 0;
+            this.Left = 0;
+
+            this.Mostrar();
+            this.Habilitar(false);
+            this.Botones();
+
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -119,7 +134,7 @@ namespace CapaPresentacion
             this.Botones();
             this.Limpiar();
             this.Habilitar(true);
-            this.txtidcarrera.Focus();
+            this.txtmatricula.Focus();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -133,21 +148,16 @@ namespace CapaPresentacion
                     MensajeError("Falta Ingresar algunos datos, serán remarcados");
                     erroricono.SetError(txtnombre, "Ingrese un Nombre");
                 }
-                if (this.txtidcarrera.Text == string.Empty)
-                {
-                    MensajeError("Falta Ingresar algunos datos, serán remarcados");
-                    erroricono.SetError(txtidcarrera, "Ingrese el codigo de la carrera");
-                }
                 else
                 {
                     if (this.IsNuevo)
                     {
-                        rpta = LCarrera.insertar(this.txtidcarrera.Text.Trim().ToUpper(), this.txtnombre.Text.Trim().ToUpper());
+                        rpta = LEstudiante.insertar(this.txtmatricula.Text.Trim(), this.txtnombre.Text.Trim().ToUpper(), Convert.ToString(this.cbcarrera.SelectedValue));
                     }
 
                     if (this.IsEditar)
                     {
-                        rpta = LCarrera.editar(this.txtidcarrera.Text.Trim().ToUpper(), this.txtnombre.Text.Trim().ToUpper());
+                        rpta = LEstudiante.editar(this.txtmatricula.Text.Trim(), this.txtnombre.Text.Trim().ToUpper(), Convert.ToString(this.cbcarrera.SelectedValue));
                     }
 
                     // validar si se inserto correctamente el registro
@@ -188,11 +198,9 @@ namespace CapaPresentacion
             }
         }
 
-       
-
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (!this.txtidcarrera.Text.Equals(""))
+            if (!this.txtmatricula.Text.Equals(""))
             {
                 this.IsEditar = true;
                 this.Botones();
@@ -214,43 +222,14 @@ namespace CapaPresentacion
             this.Habilitar(false);
         }
 
-        private void chkeliminar_CheckedChanged(object sender, EventArgs e)
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            if (chkeliminar.Checked)
-            {
-                this.dataListado.Columns[0].Visible = true;
-            }
-            else
-            {
-                this.dataListado.Columns[0].Visible = false;
-            }
-        }
-
-        private void dataListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //codigo para poder usar el check del datagrid
-
-            if (e.ColumnIndex == dataListado.Columns["eliminar"].Index)
-            {
-                DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListado.Rows[e.RowIndex].Cells["Eliminar"];
-                chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
-            }
-        }
-
-        private void dataListado_DoubleClick(object sender, EventArgs e)
-        {
-            // al dar doble click en la celda se llenara en la cajas de texto
-
-            this.txtidcarrera.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idcarrera"].Value);
-            this.txtnombre.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["nombre_carrera"].Value);
-            // cambiar al otro tabpage
-
-            this.tabControl1.SelectedIndex = 1;
+            this.BuscarNombre();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-             try
+            try
             {
                 DialogResult Opcion;
 
@@ -261,17 +240,17 @@ namespace CapaPresentacion
                     string Rpta = "";
                     string codigo;
                     int cont_eliminados = 0;
-                    foreach(DataGridViewRow row in dataListado.Rows)
+                    foreach (DataGridViewRow row in dataListado.Rows)
                     {
-                        if(Convert.ToBoolean(row.Cells[0].Value))
+                        if (Convert.ToBoolean(row.Cells[0].Value))
                         {
                             codigo = Convert.ToString(row.Cells[1].Value);
-                            Rpta = LCarrera.eliminar(codigo);
+                            Rpta = LEstudiante.eliminar(Convert.ToString(codigo));
 
-                            if(Rpta.Equals("OK"))
+                            if (Rpta.Equals("OK"))
                             {
                                 cont_eliminados++;
-                               
+
                             }
 
                             else
@@ -300,7 +279,7 @@ namespace CapaPresentacion
 
                     this.Mostrar();
 
-                    
+
 
                 }
 
@@ -312,18 +291,40 @@ namespace CapaPresentacion
             }
         }
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        private void chkeliminar_CheckedChanged(object sender, EventArgs e)
         {
-            this.BuscarNombre();
-        
+            if (chkeliminar.Checked)
+            {
+                this.dataListado.Columns[0].Visible = true;
+            }
+            else
+            {
+                this.dataListado.Columns[0].Visible = false;
+            }
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void dataListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //codigo para poder usar el check del datagrid
+
+            if (e.ColumnIndex == dataListado.Columns["eliminar"].Index)
+            {
+                DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListado.Rows[e.RowIndex].Cells["Eliminar"];
+                chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
+            }
+        }
+
+        private void dataListado_DoubleClick(object sender, EventArgs e)
         {
 
-        }
-        
+            // al dar doble click en la celda se llenara en la cajas de texto
 
-        
+            this.txtmatricula.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["matricula"].Value);
+            this.txtnombre.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["nombre"].Value);
+            this.cbcarrera.SelectedValue = Convert.ToString(this.dataListado.CurrentRow.Cells["idcarrera"].Value);
+            // cambiar al otro tabpage
+
+            this.tabControl1.SelectedIndex = 1;
+        }
     }
 }

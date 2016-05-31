@@ -10,11 +10,11 @@ namespace CapaDatos
 {
     public class DCarrera
     {
-        private int _idcarrera;
+        private string _idcarrera;
         private string _nombre_carrera;
         private string _textobuscar;
 
-        public int Idcarrera
+        public string Idcarrera
         {
             get { return _idcarrera; }
             set { _idcarrera = value; }
@@ -27,7 +27,7 @@ namespace CapaDatos
             set { _nombre_carrera = value; }
         }
 
-        public DCarrera(int idcarrera, string nombre_carrera)
+        public DCarrera(string idcarrera, string nombre_carrera)
         {
             this.Idcarrera = idcarrera;
             this.Nombre_carrera = nombre_carrera;
@@ -68,7 +68,8 @@ namespace CapaDatos
 
                 SqlParameter paridcarrera = new SqlParameter();
                 paridcarrera.ParameterName = "@idcarrera";
-                paridcarrera.SqlDbType = SqlDbType.Int;
+                paridcarrera.SqlDbType = SqlDbType.VarChar;
+                paridcarrera.Size = 3;
                 paridcarrera.Value = Carrera._idcarrera;
                 cmd.Parameters.Add(paridcarrera);
 
@@ -123,7 +124,8 @@ namespace CapaDatos
 
                 SqlParameter paridcarrera = new SqlParameter();
                 paridcarrera.ParameterName = "@idcarrera";
-                paridcarrera.SqlDbType = SqlDbType.Int;
+                paridcarrera.SqlDbType = SqlDbType.VarChar;
+                paridcarrera.Size = 3;
                 paridcarrera.Value = Carrera._idcarrera;
                 cmd.Parameters.Add(paridcarrera);
 
@@ -179,7 +181,8 @@ namespace CapaDatos
 
                 SqlParameter paridcarrera = new SqlParameter();
                 paridcarrera.ParameterName = "@idcarrera";
-                paridcarrera.SqlDbType = SqlDbType.Int;
+                paridcarrera.SqlDbType = SqlDbType.VarChar;
+                paridcarrera.Size = 3;
                 paridcarrera.Value = Carrera._idcarrera;
                 cmd.Parameters.Add(paridcarrera);
 

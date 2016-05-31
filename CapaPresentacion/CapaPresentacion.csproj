@@ -49,6 +49,12 @@
     <Compile Include="FrmCarrera.Designer.cs">
       <DependentUpon>FrmCarrera.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEstudiante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEstudiante.Designer.cs">
+      <DependentUpon>FrmEstudiante.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +66,9 @@
   <ItemGroup>
     <EmbeddedResource Include="FrmCarrera.resx">
       <DependentUpon>FrmCarrera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEstudiante.resx">
+      <DependentUpon>FrmEstudiante.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

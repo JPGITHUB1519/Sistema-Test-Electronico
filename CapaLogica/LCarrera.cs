@@ -10,7 +10,7 @@ namespace CapaLogica
 {
     public class LCarrera
     {
-        public static string insertar(int idcarrera, string nombre_carrera)
+        public static string insertar(string idcarrera, string nombre_carrera)
         {
             DCarrera carrera = new DCarrera();
 
@@ -20,7 +20,7 @@ namespace CapaLogica
             return carrera.insertar(carrera);
         }
 
-        public static string editar(int idcarrera, string nombre_carrera)
+        public static string editar(string idcarrera, string nombre_carrera)
         {
             DCarrera carrera = new DCarrera();
 
@@ -31,7 +31,7 @@ namespace CapaLogica
             return carrera.editar(carrera);
         }
 
-        public static string eliminar(int idcarrera)
+        public static string eliminar(string idcarrera)
         {
             DCarrera carrera = new DCarrera();
 

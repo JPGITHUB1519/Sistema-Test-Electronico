@@ -10,3 +10,4 @@ C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Ele
 C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\CapaPresentacion\obj\Debug\CapaPresentacion.FrmCarrera.resources
 C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\CapaPresentacion\obj\Debug\GenerateResource.read.1.tlog
 C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\CapaPresentacion\obj\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\Administrador\Escritorio\Diplomado C#\Sistema Test Electronico\CapaPresentacion\obj\Debug\CapaPresentacion.FrmEstudiante.resources

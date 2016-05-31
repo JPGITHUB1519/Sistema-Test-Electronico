@@ -47,7 +47,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.erroricono = new System.Windows.Forms.ErrorProvider(this.components);
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblmatricula = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -62,7 +62,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(366, 144);
+            this.btnCancelar.Location = new System.Drawing.Point(364, 141);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(106, 23);
             this.btnCancelar.TabIndex = 9;
@@ -72,7 +72,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(254, 144);
+            this.btnEditar.Location = new System.Drawing.Point(252, 141);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(106, 23);
             this.btnEditar.TabIndex = 8;
@@ -82,7 +82,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(142, 144);
+            this.btnGuardar.Location = new System.Drawing.Point(140, 141);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(106, 23);
             this.btnGuardar.TabIndex = 7;
@@ -92,7 +92,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(30, 144);
+            this.btnNuevo.Location = new System.Drawing.Point(28, 141);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(106, 23);
             this.btnNuevo.TabIndex = 6;
@@ -145,6 +145,7 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // dataListado
             // 
@@ -239,14 +240,14 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Nombre";
             // 
-            // label3
+            // lblmatricula
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(35, 30);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Código";
+            this.lblmatricula.AutoSize = true;
+            this.lblmatricula.Location = new System.Drawing.Point(35, 30);
+            this.lblmatricula.Name = "lblmatricula";
+            this.lblmatricula.Size = new System.Drawing.Size(40, 13);
+            this.lblmatricula.TabIndex = 0;
+            this.lblmatricula.Text = "Codigo";
             // 
             // groupBox1
             // 
@@ -257,7 +258,7 @@
             this.groupBox1.Controls.Add(this.txtnombre);
             this.groupBox1.Controls.Add(this.txtidcarrera);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.lblmatricula);
             this.groupBox1.Location = new System.Drawing.Point(8, 14);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(492, 210);
@@ -336,7 +337,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblmatricula;
         public System.Windows.Forms.ToolTip ttmensaje;
     }
 }

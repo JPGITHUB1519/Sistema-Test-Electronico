@@ -13,11 +13,11 @@ namespace CapaDatos
     {
         private string _matricula;
         private string _nombre;
-        private int _idcarrera;
+        private string _idcarrera;
         private bool _tomo_examen;
         private string _textobuscar;
 
-        bool tomo_examen;
+        
 
         public string Matricula
         {
@@ -31,7 +31,7 @@ namespace CapaDatos
             set { _nombre = value; }
         }
 
-        public int Idcarrera
+        public string Idcarrera
         {
             get { return _idcarrera; }
             set { _idcarrera = value; }
@@ -52,7 +52,7 @@ namespace CapaDatos
 
         public DEstudiante()
         {
-            this._tomo_examen = false;
+            
         }
 
         public string insertar(DEstudiante Estudiante)
@@ -84,7 +84,7 @@ namespace CapaDatos
                 cmd.Parameters.Add(parmatricula_estudiante);
 
                 SqlParameter parnombre_estudiante = new SqlParameter();
-                parnombre_estudiante.ParameterName = "@nombre_carrera";
+                parnombre_estudiante.ParameterName = "@nombre";
                 parnombre_estudiante.SqlDbType = SqlDbType.VarChar;
                 parnombre_estudiante.Size = 50;
                 parnombre_estudiante.Value = Estudiante.Nombre; ;
@@ -92,9 +92,17 @@ namespace CapaDatos
 
                 SqlParameter paridcarrera = new SqlParameter();
                 paridcarrera.ParameterName = "@idcarrera";
-                paridcarrera.SqlDbType = SqlDbType.Int;
+                paridcarrera.SqlDbType = SqlDbType.VarChar;
+                paridcarrera.Size = 3;
                 paridcarrera.Value = Estudiante._idcarrera;
                 cmd.Parameters.Add(paridcarrera);
+
+                SqlParameter partomoexamen = new SqlParameter();
+                partomoexamen.ParameterName = "@tomo_examen";
+                partomoexamen.SqlDbType = SqlDbType.Bit;
+                partomoexamen.Value = Estudiante.Tomo_examen;
+                cmd.Parameters.Add(partomoexamen);
+
 
                 rpta = cmd.ExecuteNonQuery() == 1 ? "OK" : "No se Actualizo el registro";
 
@@ -146,7 +154,7 @@ namespace CapaDatos
                 cmd.Parameters.Add(parmatricula_estudiante);
 
                 SqlParameter parnombre_estudiante = new SqlParameter();
-                parnombre_estudiante.ParameterName = "@nombre_carrera";
+                parnombre_estudiante.ParameterName = "@nombre";
                 parnombre_estudiante.SqlDbType = SqlDbType.VarChar;
                 parnombre_estudiante.Size = 50;
                 parnombre_estudiante.Value = Estudiante.Nombre; ;
@@ -154,9 +162,11 @@ namespace CapaDatos
 
                 SqlParameter paridcarrera = new SqlParameter();
                 paridcarrera.ParameterName = "@idcarrera";
-                paridcarrera.SqlDbType = SqlDbType.Int;
-                paridcarrera.Value = Estudiante._idcarrera;
+                paridcarrera.SqlDbType = SqlDbType.VarChar;
+                paridcarrera.Size = 3;
+                paridcarrera.Value = Estudiante.Idcarrera;
                 cmd.Parameters.Add(paridcarrera);
+
 
                 rpta = cmd.ExecuteNonQuery() == 1 ? "OK" : "No se Actualizo el registro";
 
@@ -269,7 +279,7 @@ namespace CapaDatos
 
         }
 
-        public DataTable buscar_nombre(DCarrera carrera)
+        public DataTable buscar_nombre(DEstudiante Estudiante)
         {
             DataTable dt = new DataTable("estudiante");
 
@@ -292,7 +302,7 @@ namespace CapaDatos
                 partexto_buscar.ParameterName = "@textobuscar";
                 partexto_buscar.SqlDbType = SqlDbType.VarChar;
                 partexto_buscar.Size = 50;
-                partexto_buscar.Value = carrera.Textobuscar;
+                partexto_buscar.Value = Estudiante.Textobuscar;
                 cmd.Parameters.Add(partexto_buscar);
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -315,6 +325,55 @@ namespace CapaDatos
 
             return dt;
 
+        }
+
+        public string tomar_examen(DEstudiante Estudiante)
+        {
+            string rpta = "";
+
+            SqlConnection con = new SqlConnection();
+
+            try
+            {
+                // abriendo conexion
+                con.ConnectionString = conexion.cn;
+                con.Open();
+
+                // creando comando
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "sptomar_estudiante";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // parametros
+
+                SqlParameter parmatricula_estudiante = new SqlParameter();
+                parmatricula_estudiante.ParameterName = "@matricula";
+                parmatricula_estudiante.SqlDbType = SqlDbType.VarChar;
+                parmatricula_estudiante.Size = 7;
+                parmatricula_estudiante.Value = Estudiante.Matricula;
+                cmd.Parameters.Add(parmatricula_estudiante);
+
+                rpta = cmd.ExecuteNonQuery() == 1 ? "OK" : "No se Actualizo el registro";
+
+
+
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+
+            }
+
+            finally
+            {
+                // si la conexion esta abierta, cierrala
+                if (con.State == ConnectionState.Open) con.Close();
+
+            }
+
+            return rpta;
         }
 
 
